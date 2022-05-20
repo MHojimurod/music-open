@@ -1,0 +1,196 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+  }
+
+  body {
+    width: 100%;
+    min-height: 100vh;
+  }
+
+  .app {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(45deg, #3f51b5, #00bcd4);
+  }
+  
+  .app-animation {
+    animation: changeBackground 20s linear infinite;
+  }
+  @keyframes changeBackground {
+    0% {
+      filter: hue-rotate(0deg);
+    } 
+  
+    100% {
+      filter: hue-rotate(360deg);
+    }
+  }
+  
+  .card {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    background-color: #fff;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition: 0.5s ease-in-out;
+    border-radius: 50%;
+  }
+  .card-animation {
+    animation-name: rotate;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-duration: 10s;
+  }
+
+  .card-photo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .card-music {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 1s ease-in-out;
+  }
+  .card-music:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+  .card-music i {
+    font-size: 4.5rem;
+    display: none;
+    cursor: pointer;
+    color: #fff;
+  }
+  .card-music:hover i {
+    display: block;
+  }
+  @keyframes rotate {
+    from {
+      transform: rotate(0);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+    
+  }
+
+#seek{
+  margin-top: 20px;
+  display: block;
+  width: 400px;
+  text-align: center;
+  justify-content: center;
+}
+
+#seek input{
+  width: 100%;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  background: transparent; 
+  border-color: transparent;
+  color: transparent;
+}
+
+
+.musics{
+  position: fixed;
+  display: inline-block;
+  width: 25vw;
+  height: 70vh;
+  /* border: 1px solid red; */
+  top: 60px;
+  right:60px;
+
+}
+.mp3{
+  display: flex;
+  align-items: center;
+  width: 80%;
+  height: 5vh;
+  /* border: 1px solid red;  */
+  margin-bottom: 10px;
+  /* background: rgb(183,14,198); */
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.mp3 a {
+  margin-left: 20px;
+
+}
+
+.btn {
+  cursor: pointer;
+  background-color: transparent;
+  overflow: hidden;
+  border: none;
+  width: 80%;
+  color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 10px 0;
+}
+
+.trash {
+  filter: invert();
+  margin-left: auto;
+  width: 35px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.play {
+  filter: invert();
+  margin-right: auto;
+  width: 35px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.sub button {
+  color: #fff;
+  cursor: pointer;
+  margin-top: 10px;
+  background-color: transparent;
+  overflow: hidden;
+  border: none;
+  width: 80%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 10px 0;
+}
+
+.pause {
+  filter: invert();
+  margin-right: auto;
+  width: 35px;
+  margin-left: 10px;
+  cursor: pointer;
+  display:none;
+
+}
+
+#volume {
+  position: fixed;
+  top: 50px;
+  left: 50px;
+  z-index: 1000;
+  font-size: 100px;
+}
+#volume span:current-color {
+    color: #f3ec78;
+}

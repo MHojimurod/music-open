@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+{% load static  %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Music Player</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+    <link
+      href="https://unpkg.com/boxicons@2.0.8/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="volume" >
+      <span id="volume_p">100</span>
+    </div>
+    <div id="control-volume" class="app">
+      <div class="card">
+        <img class="card-photo" src="https://i.ibb.co/GJqJwvt/img.jpg" alt="photo"
+        />
+        <div class="card-music" id="music-container">
+          <i id="music-btn" class="bx bx-play-circle"></i>
+
+        </div>
+      </div>
+
+      <div id="seek">
+        <!-- <input type="range" name="seek_input" id="seek_input" min="0" max="0" value="50"> -->
+      </div>
+    </div>
+
+    <div class="musics">
+      {% for i in musics %}
+      <div id="{{i.id}}" data-music="{{ i.music }}" class="mp3">
+        <img class="play status_img" src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/000000/external-play-miscellaneous-flatart-icons-outline-flatarticons.png"/>
+        <p style="margin-left: 17px; overflow: hidden;margin-right: auto;
+        " id="title">{{i.music.name}}</p>
+        <a href="{% url 'delete' pk=i.id %}"><img class="trash" src="https://img.icons8.com/pastel-glyph/64/000000/trash.png"/></a>
+      </div>
+
+      {% endfor %}
+      <form method="post"  enctype="multipart/form-data">
+        {% csrf_token %}
+        <button class="btn" onclick="document.getElementById('getFile').click()">Musiqa qo'shish</button>
+        <input type='file' name="music" id="getFile"  required style="display:none" onchange="this.form.submit();" >
+      </div>
+    </div>
+
+
+
+    <script type="module" src="{% static 'index.js' %}"></script>
+    
+  </body>
+</html>
